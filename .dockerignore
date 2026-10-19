@@ -1,0 +1,17 @@
+.git
+.github
+.specify
+docs
+tests
+scripts
+Makefile
+README.md
+CHANGELOG.md
+LICENSE
+pytest.ini
+requirements-dev.txt
+.env
+.env.*
+*.pyc
+__pycache__
+.pytest_cache

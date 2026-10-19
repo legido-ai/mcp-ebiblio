@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+<html lang="es"  >
+
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Préstamos y reservas - Mi cuenta - eBiblio Andalucía (eBiblio)</title>
+<script>
+//<![CDATA[
+RAILS_ENV='production';
+//]]>
+</script>
+<link rel="stylesheet" href="/assets/application-127ad251.css" media="all" />
+<script src="/assets/vendor-697098a3.js"></script>
+<script src="/assets/application-c05f4f80.js"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="TEST-CSRF-TOKEN" />
+<link rel="shortcut icon" href="/favicon/espa.ico" />
+<template data-purpose="google-analytics"><script src="https://www.googletagmanager.com/gtag/js?id=G-KBGZ1800BJ" async="async" nonce="a47df98a486dba6c2643f5ecc6810f42"></script>
+<script nonce="a47df98a486dba6c2643f5ecc6810f42">
+//<![CDATA[
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KBGZ1800BJ');
+
+//]]>
+</script></template>
+<script nonce="a47df98a486dba6c2643f5ecc6810f42">
+//<![CDATA[
+window.orejimeConfigPurposes = window.orejimeConfigPurposes || [];
+
+window.orejimeConfigPurposes.push({
+ id: 'google-analytics',
+ title:
+ 'Google Analytics',
+ description:
+ 'Estadísticas de visitas del sitio web, sin acceso a la identidad de los visitantes y sin ningún propósito publicitario.',
+ cookies: [
+ '_ga',
+ '_gid',
+ /^_ga_.+/
+ ]
+});
+
+//]]>
+</script>
+<!-- https://github.com/boscop-fr/orejime/blob/v3.0.2/LICENSE -->
+<script src="/assets/orejime@3.0.2/dist/orejime-standard-en-9542d6b1.js" nonce="a47df98a486dba6c2643f5ecc6810f42"></script>
+<link rel="stylesheet" href="/assets/orejime@3.0.2/dist/orejime-standard-a8a71779.css" />
+<script nonce="a47df98a486dba6c2643f5ecc6810f42">
+//<![CDATA[
+window.orejimeConfigPurposes = window.orejimeConfigPurposes || [];
+
+window.orejimeConfigPurposes.unshift({
+ id: 'mandatory',
+ isMandatory: true,
+ title:
+ 'Cookies técnicas',
+ description:
+ 'Esta opción no se puede desactivar. Estas cookies son esenciales para el correcto funcionamiento del sitio web.'
+});
+
+orejimeInitialize({
+ translationsPath:
+ '/assets/orejime/translations/es-821a8b10.json',
+ orejimeConfigWithoutTranslations: {
+ cookie:
+ { name: 'canlib_orejime', duration: 365 },
+ privacyPolicyUrl:
+ 'https://ebiblio.es/politica-cookies.html',
+ purposes:
+ window.orejimeConfigPurposes
+ }
+});
+
+//]]>
+</script>
+
+  
+  
+
+  <style nonce="a47df98a486dba6c2643f5ecc6810f42">
+
+      .button-borrow,
+      .button-download {
+        background-color: rgb(173,21,25);
+        color: #ffffff;
+      }
+
+      .button-borrow:hover,
+      .button-borrow:focus,
+      .button-borrow:active,
+      .button-download:hover,
+      .button-download:focus,
+      .button-download:active {
+        background-image:
+          linear-gradient(
+            rgba(0,0,0, 0.125),
+            rgba(0,0,0, 0.125)
+          );
+      }
+
+      a.button-borrow, a.button-borrow:focus,
+      a.button-download, a.button-download:focus {
+        color: #ffffff;
+      }
+
+
+
+
+      .nav-main {
+        background-color: rgb(173,21,25);
+      }
+
+      .nav-main__link.nav-main__link {
+        color: rgb(255,255,255);
+      }
+
+      #neat-pages-navigation .page.selected a,
+      .footer-standard-layout,
+      .modal header,
+      #modal-member-authentication header,
+      #resources #BW_boxheader,
+      .alphanumeric_title_first_character .text:hover,
+      .alphanumeric_title_first_character .switch-field .selected .text,
+      .in-cover-info a,
+      .select-styled:after,
+      .button--main-action,
+      .pagination .page.current,
+      .aside-nav__title,
+      .tooltip-marker {
+        background-color: rgb(173,21,25);
+        color: rgb(255,255,255);
+      }
+
+      .button--main-action:hover,
+      .button--main-action:focus,
+      .button--main-action:active,
+      .select-styled:hover:after,
+      .select-styled:focus:after,
+      .select-styled:active:after {
+        background-image:
+          linear-gradient(
+            rgba(0,0,0, 0.125),
+            rgba(0,0,0, 0.125)
+          );
+      }
+
+      a.button--main-action:hover, a.button--main-action:focus {
+        color: rgb(255,255,255);
+      }
+
+      .footer-copyright {
+        color: #ffffff;
+      }
+
+      .footer-contact-link {
+        color: rgb(255,255,255);
+        border-color: rgba(255,255,255, 0.8);
+      }
+
+      .footer-contact-link:hover,
+      .footer-contact-link:focus {
+        color: rgb(255,255,255);
+        border-color: rgb(255,255,255);
+      }
+
+      @media screen and (max-width: 600px) {
+        .view-all__link {
+          background-color: rgb(173,21,25);
+          color: rgb(255,255,255);
+        }
+      }
+
+      .bundle-thumb__title,
+      .palmares-section .view-covers__cover:before{
+        background-color: rgba(173,21,25, 0.8);
+        color: rgb(255,255,255);
+      }
+
+      section.cover a:focus img,
+      input[type="text"]:focus,
+      input[type="search"]:focus,
+      input[type="password"]:focus,
+      input[type="number"]:focus,
+      input[type="tel"]:focus,
+      input[type="email"]:focus,
+      input[type="date"]:focus,
+      textarea:focus,
+      .resource-article-excerpt {
+        border-color: rgb(173,21,25);
+      }
+
+      .nav-main__link:hover,
+      .nav-main__link:focus {
+        background-color: rgba(0,0,0, 0.125);
+      }
+
+      #home .nav-main .link-home,
+      #resources .nav-main .link-resources,
+      #bundles .nav-main .link-bundles,
+      #statics.palmares .nav-main .link-palmares,
+      #help .nav-main .link-help,
+      #reviews .nav-main .link-reviews,
+      #biblio_aidants .nav-main .link-biblio-aidants,
+      #fondation_chagnon .nav-main .link-fondation-changnon {
+        background-color: rgba(0,0,0, 0.25);
+      }
+
+      .orejime-Env.orejime-Env {
+        --orejime-color-interactive: rgb(173,21,25);
+      }
+
+      .search-box__results {
+        --search-box-link-color-rgb: 173,21,25;
+      }
+
+      .lb_available,
+      .banner-section__pagination .banner-section__pagination--active:after,
+      .boxed-link--primary {
+        background-color: rgb(173,21,25);
+      }
+
+      .u-bg-secondary-darken {
+        background-color: rgb(173,21,25);
+        background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+      }
+
+      a,
+      .link,
+      .backto-mobile:before,
+      .button.button--beta .icon,
+      .alphanumeric_title_first_character .text,
+      #neat-pages-navigation .page a:hover,
+      .slidebar__close {
+        color: rgb(173,21,25);
+      }
+
+      .boxed-link--primary:hover,
+      .boxed-link--primary:focus,
+      a:hover,
+      a:focus,
+      a:hover .link__hover,
+      a:focus .link__focus,
+      .link:hover,
+      .link:focus,
+      .link:hover .link__hover,
+      .link:focus .link__focus,
+      .slidebar__nav > ul a:hover,
+      .slidebar__close:hover,
+      .slidebar__close:focus,
+      .menu-classification a:hover,
+      .menu-classification a:focus,
+      .subjects-list a:hover,
+      h1 a:hover,
+      h2 a:hover,
+      h3 a:hover,
+      h4 a:hover,
+      h5 a:hover,
+      h6 a:hover,
+      .alpha a:hover,
+      .beta a:hover,
+      .gamma a:hover,
+      .delta a:hover,
+      .epsilon a:hover,
+      .zeta a:hover,
+      .pagination .page a:hover,
+      .menu-list__link:hover,
+      .menu-list__link:focus {
+        color: rgb(156,19,23);
+      }
+
+
+      .actions-list__icon,
+      .svg-icon_secondary_color {
+        fill: rgb(173,21,25);
+      }
+</style>
+  
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://andalucia.ebiblio.es/my_profile/activity" />
+  <meta property="og:image" content="" />
+
+
+
+  <meta name="twitter:card" content="summary" />
+
+
+
+  
+
+
+  
+
+</head>
+<body id="members" class="profile_activity espa chrome chrome126 " data-coffee-cup="Members#ProfileActivity" data-instance="espa">
+  
+
+
+  <div id="topofpage"></div>
+
+  <a class="skip-to-content skip-to-content_main" href="#main">Ir directamente al contenido</a>
+
+  
+
+
+  <div class="page-wrapper">
+    <header id="header">
+      
+<div class="header-topbar">
+  <div class="wrapper">
+    <div class="header-topbar__row">
+
+      <div class="header-topbar__left">
+
+
+            <span class="header-topbar__item  provider-text-link">eBiblio Andalucía</span>
+            <span class="header-topbar__goto  provider-logo-link-one"></span>
+            <span class="header-topbar__goto  provider-logo-link-two"></span>
+
+
+      </div>
+
+      <div class="header-topbar__right">
+
+            <div class="header-topbar__item header-topbar__account-info">
+              
+
+<div class="account-info msg msg_">
+  <a class="msg__text" href="https://andalucia.ebiblio.es/my_profile/activity#counters">Tienes todavía derecho a <strong>4 préstamos</strong> y <strong>2 reservas</strong></a>
+</div>
+
+            </div>
+
+
+          <nav class="header-topbar__item nav-account" aria-label="Cuenta">
+            <ul>
+              <li class="nav-account__item drop-menu drop-menu_hover drop-menu_ext_right js-drop-menu" data-has-hover-handler="true">
+                <a href="#account-menu" role="button" class="drop-menu__trigger link  nav-account__link  nav-account__link-account">
+                  Javier
+                </a>
+                <div id="account-menu" class="drop-menu__wrap  txt-base">
+                  <ul class="drop-menu__content  menu-list">
+                      <li class="menu-list__item"><a class="menu-list__link" href="/my_profile">Información de la cuenta</a></li>
+                      <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/activity">Préstamos y reservas</a></li>
+                      <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/history">Historial</a></li>
+                        <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/wishlist">Favoritos</a></li>
+
+
+
+                    <li class="menu-list__item"><a class="menu-list__link" href="/sign_out">Salir</a></li>
+                  </ul>
+                </div>
+
+              </li>
+            </ul>
+          </nav>
+
+        
+  <div class="header-topbar__item">
+    <div class="locale-selector drop-menu drop-menu_hover js-drop-menu" data-has-hover-handler="true">
+      <button type="button" class="drop-menu__trigger boxed-link boxed-link--primary dropdown-arrow">
+        Castellano&nbsp;
+        <span class="icon icon--arrow-down icon--alone"></span>
+      </button>
+      <div class="drop-menu__wrap txt-base">
+        <ul class="drop-menu__content menu-list">
+            <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/activity?l=es">Castellano</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/activity?l=ca">Català</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/activity?l=ca-valencia">Valencià</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/activity?l=eu">Euskara</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/my_profile/activity?l=gl">Galego</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      
+
+<div class="wrapper band band_sm">
+  <div class="header-logos">
+      <a title="Regreso a la página de inicio" class="d-flex align-items-center" href="/home">
+          <div class="header-logos__logo">
+            <img alt="Gobierno de España - Ministerio de Cultura" src="/assets/espa/espa-gouv-logo-8672058a.png" />
+          </div>
+
+
+          <div class="header-logos__logo">
+
+            <img srcset="https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-logo.png, https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-logo-2x.png 2x" alt="eBiblio Andalucía" src="https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-logo.png" />
+          </div>
+</a>
+      <div class="header-logos__logo">
+        <img alt="eBiblio" src="/assets/espa/ebiblio-logo-0a480264.png" />
+      </div>
+
+  </div>
+</div>
+
+
+      <div class="nav-main" id="nav-main">
+        <div class="nav-main__wrapper wrapper">
+          <nav class="nav-main__navigation" aria-label="Navegación principal">
+            <ul class="nav-main__list" id="main-menu" data-view-more-text="Más" data-hidden-menu-close-button-text="Cerrar">
+              
+<li class="nav-main__item"><a class="link-home nav-main__link" href="/home">Inicio</a></li>
+<li class="nav-main__item"><a class="link-resources nav-main__link" href="/resources">Catálogo</a></li>
+
+
+
+
+
+
+
+
+
+  <li class="nav-main__item"><a class="link-about nav-main__link" href="/about">Información</a></li>
+
+<li class="nav-main__item"><a target="_blank" class="link-help nav-main__link" href="/help">Guía de uso</a></li>
+
+            </ul>
+          </nav>
+
+          <div class="nav-main__search-box">
+            
+<div itemscope itemtype="http://schema.org/WebSite">
+  <meta itemprop="url" content="https://andalucia.ebiblio.es"/>
+
+  <form role="search" itemprop="potentialAction" itemscope="itemscope" itemtype="http://schema.org/SearchAction" action="/resources" accept-charset="UTF-8" method="get">
+    <div class="search-box search-box--shrinked" id="search-box" tabindex="-1">
+      <div class="search-box__field">
+        <input type="text" name="q" id="q" value="" placeholder="Buscar..." role="combobox" aria-label="Búsqueda" aria-controls="search-box-results" aria-owns="search-box-results" aria-autocomplete="both" aria-haspopup="true" aria-expanded="false" class="search-box__input" itemprop="query-input" autocomplete="off" spellcheck="false" />
+
+        <div class="search-box__results">
+          <div class="search-results" id="search-box-results"></div>
+        </div>
+
+        <div class="search-box__other-actions">
+
+          <button type="button" aria-label="Borrar la búsqueda" aria-controls="q" title="Borrar la búsqueda" class="search-box__reset-button is-removed">
+            <span aria-hidden="true">×</span>
+          </button>
+
+          <a data-show-modal="advanced-search" id="link-advanced-search" href="https://andalucia.ebiblio.es/advanced_search">Avanzada</a>
+        </div>
+
+        <button type="submit" class="search-box__submit-button" aria-label="Buscar" title="Buscar">
+          <svg viewBox="0 0 24 24" class="svg-icon" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#search"></use></svg>
+        </button>
+      </div>
+    </div>
+</form></div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="main" class="main-body" role="main">
+      
+  <div class="wrapper band">
+    <div class="grid">
+      <div class="grid__row">
+        <div class="grid__cell-sm-3">
+          
+<aside>
+  <nav class="aside-nav">
+    <h3 class="aside-nav__title">Mi cuenta</h3>
+
+    <ul class="aside-nav__list">
+      <li class="aside-nav__item">
+        <a class="aside-nav__link" href="/my_profile">Información de la cuenta</a>      </li>
+      <li class="aside-nav__item">
+        
+          <a class="aside-nav__link  aside-nav__current" href="/my_profile/activity">Préstamos y reservas</a>
+      </li>
+      <li class="aside-nav__item">
+        <a class="aside-nav__link" href="/my_profile/history">Historial</a>      </li>
+        <li class="aside-nav__item">
+          <a class="aside-nav__link" href="/my_profile/wishlist">Favoritos</a>        </li>
+    </ul>
+  </nav>
+</aside>
+
+        </div>
+
+        <div class="grid__cell-sm-9">
+
+          
+
+
+<h1 class="screen-reader-text">Préstamos y reservas</h1>
+
+
+<div class="msg top-info row-space-2">
+  <div>
+    <p class="msg__text">
+      <a href="#" class="c-link-arrow-downup js-expandable-controller" aria-controls="counters">
+        Tienes todavía derecho a <strong>4 préstamos</strong> y <strong>2 reservas</strong>
+      </a>
+    </p>
+
+
+    <div class="band band_sm is-removed" id="counters">
+      <ul>
+          <li class="inline-group">
+            <span class="inline-group__item large-px">
+              Préstamos simultáneos:
+            </span>
+            <span class="inline-group__item">
+              <strong>4</strong> / 5
+            </span>
+          </li>
+          <li class="inline-group">
+            <span class="inline-group__item large-px">
+              Reservas simultáneas:
+            </span>
+            <span class="inline-group__item">
+              <strong>2</strong> / 2
+            </span>
+          </li>
+
+          <li class="inline-group">
+            <span class="inline-group__item large-px">
+              Límite de préstamos por día (periodo de 24h):
+            </span>
+            <span class="inline-group__item">
+              <strong>9</strong> / 10
+            </span>
+          </li>
+          <li class="inline-group">
+            <span class="inline-group__item large-px">
+              Límite de préstamos por mes (periodo de 30 días):
+            </span>
+            <span class="inline-group__item">
+              <strong>39</strong> / 40
+            </span>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<article>
+  <h2 class="alpha">Préstamos</h2>
+
+
+  <section class="resources  active-loans  pnl  row-space-2" id="active-loans">
+    <div class="pnl__header  header">
+      <h3 class="header__title beta">Préstamos activos</h3>
+    </div>
+      
+<ul class="list-details">
+
+    <li class="list-details__item js-loan" id="loan-6ad6496b9d08eec7853de5b4" aria-live="polite" aria-busy="false">
+      <article class="view-details js-loan__content">
+        <div class="view-details__cover">
+          <div class="display-cover-img">
+            
+<a tabindex="-1" aria-hidden="true" title="La barraca (novela) (Ver la ficha)" href="/resources/5fcfe8a0114a6f0001f59490"><img alt="La barraca (novela)" class="cover" src="https://imagedelivery.net/QDkyDSqaJI1JEO0MqH_3SQ/79ecf529-747c-47b1-3402-353726c12300/default" /></a>
+
+            
+
+<div class="cover__icons">
+
+</div>
+
+          </div>
+        </div>
+
+        <div class="view-details__content">
+          <div class="details-content">
+            <div class="view-details__return-padder">
+              
+
+  <header class="details-content__header">
+
+
+      <a href="/resources/5fcfe8a0114a6f0001f59490">
+        <h4 class="details-content__title gamma">La barraca (novela)</h4>
+
+</a>
+    <div class="details-content__adnl-info">
+      <ul>
+            <li>
+              <div class="media">
+                <div class="media__img col-space-1">Autor:</div>
+                <div class="media__content">
+                  
+<div class="contributors">
+
+  <a title="Ver los libros de este colaborador (Autor)" href="/resources?author_keyword=Vicente+Blasco+Ib%C3%A1%C3%B1ez"><span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><span itemprop="name">Vicente Blasco Ibáñez</span></span></a>
+
+</div>
+
+                </div>
+              </div>
+            </li>
+
+          
+
+
+
+
+      </ul>
+    </div>
+
+      
+
+<ul class="display-cover-tags tags mt-1">  <li class="tags__item lists-widget-tag">
+    <span class="lb lb_sm lb_in_reading_list txt-xs">
+      <svg viewBox="0 0 24 24" class="svg-icon svg-icon_left" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#favorite"></use></svg>Lista de lectura
+    </span>
+  </li>
+
+
+
+
+</ul>
+  </header>
+
+            </div>
+
+            
+
+<div class="details-content__body">
+  <div class="time-remaining">
+      Tu préstamo expira el <strong>18 diciembre 2026 a las 17:46</strong>.
+  </div>
+</div>
+
+<div class="details-content__actions">
+    <div class="s-sm-actions-list">
+      
+
+<ul class="actions-list js-accordeon" data-allow-toggle="false" data-with-chevron-icons="true">
+    <li class="actions-list__item">
+      <a class="actions-list__title actions-list__link d-flex align-items-center" target="_blank" href="https://andalucia.ebiblio.es/loans/6ad6496b9d08eec7853de5b4?nonce=TESTNONCE&amp;timestamp=2026-12-18T16%3A46%3A35Z&amp;token=TESTTOKEN&amp;viewer=web_reader">
+        <svg viewBox="0 0 24 24" class="svg-icon actions-list__icon" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#streamable"></use></svg>
+        <span>Leer en línea</span>
+        <svg viewBox="0 0 24 24" class="svg-icon actions-list__arrow svg-icon_sm" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#chevron-right"></use></svg>
+</a>    </li>
+
+
+    <li class="actions-list__item">
+
+      <a class="actions-list__title actions-list__link d-flex align-items-center js-accordeon__item" aria-controls="6ad6496b9d08eec7853de5b4-computer" href="https://andalucia.ebiblio.es/loans/6ad6496b9d08eec7853de5b4?device_type=computer&amp;drm=lcp&amp;nonce=TESTNONCE&amp;timestamp=2026-12-18T16%3A46%3A35Z&amp;token=TESTTOKEN">
+        <svg viewBox="0 0 24 24" class="svg-icon actions-list__icon" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#download-computer"></use></svg>
+        <span>Leer sin conexión desde un ordenador (con Thorium Reader)</span>
+        <svg viewBox="0 0 24 24" class="svg-icon actions-list__arrow svg-icon_sm" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#chevron-right"></use></svg>
+</a>
+      <div class="actions-list__gap actions-list__content row-space-1 is-removed" id="6ad6496b9d08eec7853de5b4-computer">
+        <p>El archivo descargado se puede leer sin conexión en un ordenador.</p>
+
+          <p>Cuando abras este libro electrónico por primera vez en Thorium Reader deberás proporcionar, como contraseña, la respuesta a la siguiente pregunta:</p>
+          
+<dl class="dl-grid dl-grid--break-on-small-screen">
+  <dt>Pregunta secreta:</dt>
+  <dd>¿Cuál es tu código de socio?</dd>
+
+  <dt>Respuesta:</dt>
+  <dd><strong>L123456789</strong></dd>
+</dl>
+
+      </div>
+    </li>
+
+      <li class="actions-list__item">
+          <h5 class="actions-list__title d-flex align-items-center row-space-0">
+            <svg viewBox="0 0 24 24" class="svg-icon actions-list__icon" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#download-reader"></use></svg>
+            Leer en un ereader
+          </h5>
+
+          <div class="actions-list__gap">
+                <a class="actions-list__link actions-list__sublink d-flex align-items-center js-accordeon__item" aria-controls="6ad6496b9d08eec7853de5b4-reader-lcp" href="https://andalucia.ebiblio.es/loans/6ad6496b9d08eec7853de5b4?device_type=reader&amp;drm=lcp&amp;nonce=TESTNONCE&amp;timestamp=2026-12-18T16%3A46%3A35Z&amp;token=TESTTOKEN">
+                  <span>Vivlio / PocketBook / inkBOOK</span>
+                  <svg viewBox="0 0 24 24" class="svg-icon actions-list__arrow svg-icon_sm" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#chevron-thin-right"></use></svg>
+</a>
+                <div class="actions-list__content row-space-2 is-removed" id="6ad6496b9d08eec7853de5b4-reader-lcp">
+                  <p>Cuando abras este libro electrónico por primera vez en tu ereader, asegúrate de que esté conectado a internet; como contraseña, deberás proporcionar la respuesta a la siguiente pregunta:</p>
+                  
+<dl class="dl-grid dl-grid--break-on-small-screen">
+  <dt>Pregunta secreta:</dt>
+  <dd>¿Cuál es tu código de socio?</dd>
+
+  <dt>Respuesta:</dt>
+  <dd><strong>L123456789</strong></dd>
+</dl>
+
+                </div>
+                <a class="actions-list__link actions-list__sublink d-flex align-items-center js-accordeon__item" aria-controls="6ad6496b9d08eec7853de5b4-reader-acs" href="https://andalucia.ebiblio.es/loans/6ad6496b9d08eec7853de5b4?device_type=reader&amp;drm=acs4&amp;nonce=TESTNONCE&amp;timestamp=2026-12-18T16%3A46%3A35Z&amp;token=TESTTOKEN">
+                  <span>Otros ereaders</span>
+                  <svg viewBox="0 0 24 24" class="svg-icon actions-list__arrow svg-icon_sm" aria-hidden="true"><use xlink:href="/assets/icons/icons-4f212c89.svg#chevron-thin-right"></use></svg>
+</a>
+                <div class="actions-list__content is-removed" id="6ad6496b9d08eec7853de5b4-reader-acs">
+                  <p>Puedes abrir el archivo en tu ordenador y transferirlo a tu ereader utilizando Adobe Digital Editions y tu cuenta de Adobe.</p>
+                </div>
+          </div>
+      </li>
+</ul>
+
+    </div>
+</div>
+
+
+
+          </div>
+        </div>
+
+        <div class="view-details__return">
+
+            <button type="button" data-loan-id="6ad6496b9d08eec7853de5b4" data-resource-id="5fcfe8a0114a6f0001f59490" data-url="https://andalucia.ebiblio.es/loans/6ad6496b9d08eec7853de5b4/return" data-confirm-message="¿Confirmas que deseas devolver este préstamo?" data-return-in-progress="Procesando devolución: &quot;La barraca (novela)&quot;" data-return-completed="Devolución finalizada: &quot;La barraca (novela)&quot;" data-button-text="OK" data-show-recommended-readings="false" class="button button--beta button_sm js-loan__return">Devolver préstamo</button>
+        </div>
+      </article>
+    </li>
+</ul>
+
+  </section>
+
+</article>
+
+<article class="separator">
+  <h2 class="alpha">Reservas</h2>
+
+  <section class="resources  active-bookings  pnl  row-space-2" id="loans-on-hold-from-booking">
+    <header class="pnl__header  header">
+      <h3 class="header__title beta">Disponibles para el préstamo</h3>
+      <p>Reservas disponibles para su préstamo. Para activarlo, haga clic sobre “Prestar”.</p>
+    </header>
+      <p>No tienes ninguna reserva disponible para préstamo.</p>
+  </section>
+
+  <section class="resources  active-bookings  pnl  row-space-2" id="active-bookings">
+    <header class="pnl__header  header">
+      <h3 class="header__title beta">Pendiente de disponibilidad</h3>
+      <p>La fecha que se muestra es una estimación en función del estado actual de los préstamos y reservas de los títulos reservados. Es normal que la fecha cambie si hay préstamos que no se llegan a prestar o devoluciones anticipadas en dichos títulos. En el momento en que una de las reservas esté disponible, te avisaremos por correo electrónico.</p>
+    </header>
+      <p>No tienes ninguna reserva activa.</p>
+  </section>
+</article>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </div>
+
+    
+<footer class="footer-standard-layout">
+  <div class="wrapper band">
+    <nav class="d-flex align-items-start justify-content-between" aria-label="Navegación al pié de página">
+      <ul class="nav col-space-2 row-space-3">
+
+          <li><a target="_blank" href="https://andalucia.ebiblio.es/privacy_policy">Política de privacidad</a></li>
+
+          <li>
+            <button type="button" class="js-orejime-open-cookie-settings link u-remove-button-style">
+              Configuración de cookies
+            </button>
+          </li>
+
+          <li><a target="_blank" href="https://ebiblio.es/aviso-legal.html">Aviso legal</a></li>
+
+          <li><a href="/accessibility_statement">Declaración de accesibilidad</a></li>
+
+        <li><a href="/sitemap">Mapa del sitio</a></li>
+      </ul>
+
+      <div class="d-flex justify-content-flex-end flex-shrink-0 row-space-3">
+          <a class="footer-contact-link" href="/remarks/new">Contacta con nosotros</a>
+
+        <a class="footer-backtotop" href="#topofpage"><span class="screen-reader-text">Inicio de la página</span></a>
+      </div>
+    </nav>
+
+    <div class="d-flex align-items-center justify-content-between flex-wrap">
+      <div>
+      </div>
+
+        <ul class="footer-logos">
+          <li class="footer-logos__item">
+            <img srcset="https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-footer-logo.png, https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-footer-logo-2x.png 2x" alt="Logotipos" class="footer-logos__image" src="https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-footer-logo.png" />
+          </li>
+        </ul>
+    </div>
+
+  </div>
+</footer>
+
+
+    <div class="modal" hidden="hidden" id="advanced-search" data-ajax-modal="false" data-append-to-body="true" data-close-on-background-click="1" data-iframe="{}"><div class="window-wrapper modal__window-wrapper"><div class="window-wrapper-cell modal__window-wrapper-cell"><div class="window modal__window" id="advanced-search-modal-window" role="dialog" aria-labelledby="advanced-search-title" tabindex="-1"><article><header class="modal__header"><a data-hide-modal="1" class="close modal__close" title="Cerrar" aria-label="Cerrar" href="#"><span aria-hidden="true">&#215;</span></a><h3 id="advanced-search-title" class="modal__title">Búsqueda avanzada</h3></header><div class="inner-content modal__content"></div></article></div></div></div></div>
+    
+    
+
+
+  </div>
+</body></html>

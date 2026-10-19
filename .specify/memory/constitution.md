@@ -5,7 +5,7 @@ Projects adopting this template should replace placeholder tokens
 (in square brackets) with project-specific values.
 -->
 
-# [PROJECT_NAME] Constitution
+# mcp-ebiblio Constitution
 
 This document governs all development on this project. It is the supreme
 authority for process, quality, security, and governance decisions.
@@ -59,9 +59,18 @@ compliance and checklist requirements.
 - A `README.md` MUST document at minimum: prerequisites, quickstart, and
   architecture overview.
 
-### [PRINCIPLE_5_NAME]
+### V. Account-Scoped Operation
 
-[PRINCIPLE_5_DESCRIPTION]
+- The server MUST act only on the library account whose credentials it was
+  given: no shared accounts, no credential harvesting, no bulk catalogue
+  harvesting beyond what the user's own searches require.
+- Library rules (loan limits, loan duration, reservation limits) MUST be
+  respected by the tooling: the server never tries to bypass counters, queues
+  or availability checks enforced by the platform.
+- Exported books MUST stay attached to their loan: exports are the user's own
+  borrowed copies and the loan remains returnable at any time.
+- Anything written to disk (loan files, exported books, ADEPT device keys)
+  MUST live under the configured data directory with owner-only permissions.
 
 ## Compliance Gate
 
@@ -92,5 +101,5 @@ with justification.
   compliance with this constitution and record verification in the plan's
   Constitution Check section.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] |
-**Last Amended**: [LAST_AMENDED_DATE]
+**Version**: 1.0.0 | **Ratified**: 2026-10-19 |
+**Last Amended**: 2026-10-19

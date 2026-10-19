@@ -1,0 +1,162 @@
+{
+ "resources": [
+  {
+   "title": "Mortadelo y Filemón. El sulfato atómico (Esenciales Ibáñez 1)",
+   "title_prefix": null,
+   "title_sort": "mortadelo y filemon. el sulfato atomico (esenciales ibanez 1)",
+   "subtitle": ": Las mejores aventuras de Mortadelo y Filemón seleccionadas por Ibáñez",
+   "description": null,
+   "summary": "Formato especial Fixed Layout.<br><b>El sulfato atómico, una obra maestra indiscutible de Francisco Ibáñez.</b> En 1969, debido al éxito creciente de la serie<b> Mortadelo y Filemón</b>, la editorial Bruguera encargó a Ibáñez la primera aventura larga de los famosos agentes. Francisco Ibáñez creó una historieta con un cuidadísimo dibujo y guion,  que pasaría a la historia de nuestro cómic, siendo considerada por muchos como la obra cumbre de Ibáñez. Con más de cincuenta años desde su publicación,<i> El sulfato atómico</i>  es un icono y una de las obras maestras del cómic, reconocida internacionalmente.",
+   "comments": null,
+   "tags": [],
+   "back_cover": null,
+   "back_cover_large": null,
+   "cover": "https://imagedelivery.net/QDkyDSqaJI1JEO0MqH_3SQ/11c2baac-a341-44d8-2230-e271fb785200/default",
+   "cover_large": null,
+   "flipbook": null,
+   "languages": [
+    "spa"
+   ],
+   "page_count": 48,
+   "translated_from": null,
+   "contributors": [
+    {
+     "first_name": "Francisco",
+     "last_name": "Ibáñez",
+     "nature": "author",
+     "country": null,
+     "biography": "<P><B>Francisco Ibáñez</B> es, sin lugar a dudas, nuestro autor de cómic más  reconocido nacional e internacionalmente. El 20 de enero de 1958 aparece  la primera historieta de Mortadelo y Filemón en el número 1394 de la revista <I>Pulgarcito,</I> de la editorial Bruguera. A partir de aquí  Ibáñez crea sus mejores series y personajes: «Mortadelo y Filemón», «La  familia Trapisonda», «13, Rue del Percebe», «El botones Sacarino», «Rompetechos» y «Pepe Gotera y Otilio».</P> <P>En los años 1969, 1974, 1975 y 1976 recibe el premio Aro de Oro a los  personajes infantiles más populares del año por Mortadelo y Filemón. En  1994 se le otorga el Gran Premio del Salón del Cómic al conjunto de su  obra y en 2002 se le concede la Medalla de Oro al Mérito en las Bellas Artes 2001.</P> <P><I>El Tesorero</I> y <I>¡Elecciones!</I> han sido dos de los mayores éxitos de la carrera de Francisco Ibáñez.</P> <P>En 2017 publica <I>¡Miseria, la Bacteria!,</I> donde el autor crea un nuevo personaje, la mujerdel Profesor Bacterio, y <I>Drones Matones,</I>  en el que las nuevas tecnologías llegan a la T.I.A.</P>",
+     "website": null
+    }
+   ],
+   "media": [
+    {
+     "nature": "epub",
+     "key_type": "isbn13",
+     "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-a4c6a285-f2ae-4354-a9d4-53884b4b4fa4-9788402424891-epub",
+     "key": "9788402424891",
+     "issued_on": "2020-11-05T01:00:00+01:00",
+     "current_holds": 0
+    },
+    {
+     "nature": "paper",
+     "key_type": "isbn13",
+     "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-a4c6a285-f2ae-4354-a9d4-53884b4b4fa4-9788402424259-paper",
+     "key": "9788402424259",
+     "issued_on": "2020-11-05T01:00:00+01:00",
+     "current_holds": 0
+    }
+   ],
+   "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-a4c6a285-f2ae-4354-a9d4-53884b4b4fa4",
+   "link": "https://andalucia.ebiblio.es/resources/5fcf8f0980aa45001bb5ad80",
+   "created_at": "2020-12-08T15:34:49+01:00",
+   "updated_at": "2026-04-08T16:15:31+02:00",
+   "publisher_name": "Bruguera,",
+   "classifications": [],
+   "unavailable_since": "2025-07-15T19:01:24+02:00",
+   "publisher": {
+    "name": "Bruguera,"
+   }
+  },
+  {
+   "title": "Relatos breves de Vicente Blasco Ibáñez",
+   "title_prefix": null,
+   "title_sort": "relatos breves de vicente blasco ibanez",
+   "subtitle": null,
+   "description": null,
+   "summary": "Este audiolibro incluye los relatos:<i> El monstruo</i>, <i>El rey de las praderas</i>, <i>La noche serbia</i>, <i>La vieja del cinema</i> y <i>Un beso.</i> <br>",
+   "comments": null,
+   "tags": [],
+   "back_cover": null,
+   "back_cover_large": null,
+   "cover": "https://imagedelivery.net/QDkyDSqaJI1JEO0MqH_3SQ/429814d8-0d3b-4ab5-3a8c-144b7ffc2700/default",
+   "cover_large": null,
+   "flipbook": null,
+   "languages": [
+    "spa"
+   ],
+   "page_count": 0,
+   "translated_from": null,
+   "contributors": [
+    {
+     "first_name": "Vicente",
+     "last_name": "Blasco Ibáñez",
+     "nature": "author",
+     "country": null,
+     "biography": "",
+     "website": null
+    }
+   ],
+   "media": [
+    {
+     "nature": "audio",
+     "key_type": "isbn13",
+     "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-e2ee5e1b-7ce5-4598-95e8-9c4651f9c986-9788492793525-audio",
+     "key": "9788492793525",
+     "issued_on": "1990-01-01T01:00:00+01:00",
+     "current_holds": 0
+    }
+   ],
+   "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-e2ee5e1b-7ce5-4598-95e8-9c4651f9c986",
+   "link": "https://andalucia.ebiblio.es/resources/60f04a26bf5e6f0001117a29",
+   "created_at": "2021-07-15T16:45:58+02:00",
+   "updated_at": "2022-07-18T04:15:39+02:00",
+   "publisher_name": "Audiomol",
+   "classifications": [],
+   "unavailable_since": null,
+   "publisher": {
+    "name": "Audiomol"
+   }
+  },
+  {
+   "title": "¡En la luna! (Esenciales Ibáñez)",
+   "title_prefix": null,
+   "title_sort": " en la luna! (esenciales ibanez)",
+   "subtitle": null,
+   "description": null,
+   "summary": "<p style=\"text-align:center\"><b>Las mejores aventuras de Mortadelo y Filemón seleccionadas por Ibáñez.</b></p> <p style=\"text-align:center\"></p> <p style=\"text-align:center\"><b>Mortadelo y Filemón llegarán más alto que nunca... ¡¡Hasta la luna!!</b></p> <p>El Súper quiere aumentar el prestigio en cuanto a técnica de España, por  ello con motivo del 40º aniversario de la llegada del hombre a la Luna,  ha creado un equipo formado por el diseñador del vehículo espacial  (Bacterio), unos ingenieros aeroespaciales (Pepe Gotera y Otilio), un  astrofísico con gran visión del espacio intergaláctico (Rompetechos) y la diseñadora de los trajes (Ofelia).</p> <p>Mortadelo y Filemón serán los astronautas encargados de repetir la  hazaña y ya de paso recoger en la Luna pruebas para los que dudan de que los americanos.</p>",
+   "comments": null,
+   "tags": [],
+   "back_cover": null,
+   "back_cover_large": null,
+   "cover": "https://imagedelivery.net/QDkyDSqaJI1JEO0MqH_3SQ/8ff4ef80-f13e-4038-9a46-a04fea6e8e00/default",
+   "cover_large": null,
+   "flipbook": null,
+   "languages": [
+    "spa"
+   ],
+   "page_count": 0,
+   "translated_from": null,
+   "contributors": [
+    {
+     "first_name": "Francisco",
+     "last_name": "Ibáñez",
+     "nature": "author",
+     "country": null,
+     "biography": "",
+     "website": null
+    }
+   ],
+   "media": [
+    {
+     "nature": "epub",
+     "key_type": "isbn13",
+     "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-41d81199-61cb-472a-a4ab-a58bbe58efad-9788402426697-epub",
+     "key": "9788402426697",
+     "issued_on": "2021-10-07T02:00:00+02:00",
+     "current_holds": 0
+    }
+   ],
+   "id": "3ccc34cb-c069-4255-ab94-0f36a75a4690https-warehouse-demarque-dev-publications-41d81199-61cb-472a-a4ab-a58bbe58efad",
+   "link": "https://andalucia.ebiblio.es/resources/61cefbf7b176e400015ee84d",
+   "created_at": "2021-12-31T13:47:51+01:00",
+   "updated_at": "2023-05-13T23:45:54+02:00",
+   "publisher_name": "BRUGUERA",
+   "classifications": [],
+   "unavailable_since": "2023-05-13T23:19:05+02:00",
+   "publisher": {
+    "name": "BRUGUERA"
+   }
+  }
+ ]
+}

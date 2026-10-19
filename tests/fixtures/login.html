@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Identificación - eBiblio Andalucía (eBiblio)</title>
+<script>
+//<![CDATA[
+RAILS_ENV='production';
+//]]>
+</script>
+<link rel="stylesheet" href="/assets/application-127ad251.css" media="all" />
+<script src="/assets/vendor-697098a3.js"></script>
+<script src="/assets/application-c05f4f80.js"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="TEST-CSRF-TOKEN" />
+<link rel="shortcut icon" href="/favicon/espa.ico" />
+<template data-purpose="google-analytics"><script src="https://www.googletagmanager.com/gtag/js?id=G-KBGZ1800BJ" async="async" nonce="ec55c192ab7912d2d82b898695525008"></script>
+<script nonce="ec55c192ab7912d2d82b898695525008">
+//<![CDATA[
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KBGZ1800BJ');
+
+//]]>
+</script></template>
+<script nonce="ec55c192ab7912d2d82b898695525008">
+//<![CDATA[
+window.orejimeConfigPurposes = window.orejimeConfigPurposes || [];
+
+window.orejimeConfigPurposes.push({
+ id: 'google-analytics',
+ title:
+ 'Google Analytics',
+ description:
+ 'Estadísticas de visitas del sitio web, sin acceso a la identidad de los visitantes y sin ningún propósito publicitario.',
+ cookies: [
+ '_ga',
+ '_gid',
+ /^_ga_.+/
+ ]
+});
+
+//]]>
+</script>
+<!-- https://github.com/boscop-fr/orejime/blob/v3.0.2/LICENSE -->
+<script src="/assets/orejime@3.0.2/dist/orejime-standard-en-9542d6b1.js" nonce="ec55c192ab7912d2d82b898695525008"></script>
+<link rel="stylesheet" href="/assets/orejime@3.0.2/dist/orejime-standard-a8a71779.css" />
+<script nonce="ec55c192ab7912d2d82b898695525008">
+//<![CDATA[
+window.orejimeConfigPurposes = window.orejimeConfigPurposes || [];
+
+window.orejimeConfigPurposes.unshift({
+ id: 'mandatory',
+ isMandatory: true,
+ title:
+ 'Cookies técnicas',
+ description:
+ 'Esta opción no se puede desactivar. Estas cookies son esenciales para el correcto funcionamiento del sitio web.'
+});
+
+orejimeInitialize({
+ translationsPath:
+ '/assets/orejime/translations/es-821a8b10.json',
+ orejimeConfigWithoutTranslations: {
+ cookie:
+ { name: 'canlib_orejime', duration: 365 },
+ privacyPolicyUrl:
+ 'https://ebiblio.es/politica-cookies.html',
+ purposes:
+ window.orejimeConfigPurposes
+ }
+});
+
+//]]>
+</script>
+
+  
+  
+
+  <style nonce="ec55c192ab7912d2d82b898695525008">
+
+      .button-borrow,
+      .button-download {
+        background-color: rgb(173,21,25);
+        color: #ffffff;
+      }
+
+      .button-borrow:hover,
+      .button-borrow:focus,
+      .button-borrow:active,
+      .button-download:hover,
+      .button-download:focus,
+      .button-download:active {
+        background-image:
+          linear-gradient(
+            rgba(0,0,0, 0.125),
+            rgba(0,0,0, 0.125)
+          );
+      }
+
+      a.button-borrow, a.button-borrow:focus,
+      a.button-download, a.button-download:focus {
+        color: #ffffff;
+      }
+
+
+
+
+      .nav-main {
+        background-color: rgb(173,21,25);
+      }
+
+      .nav-main__link.nav-main__link {
+        color: rgb(255,255,255);
+      }
+
+      #neat-pages-navigation .page.selected a,
+      .footer-standard-layout,
+      .modal header,
+      #modal-member-authentication header,
+      #resources #BW_boxheader,
+      .alphanumeric_title_first_character .text:hover,
+      .alphanumeric_title_first_character .switch-field .selected .text,
+      .in-cover-info a,
+      .select-styled:after,
+      .button--main-action,
+      .pagination .page.current,
+      .aside-nav__title,
+      .tooltip-marker {
+        background-color: rgb(173,21,25);
+        color: rgb(255,255,255);
+      }
+
+      .button--main-action:hover,
+      .button--main-action:focus,
+      .button--main-action:active,
+      .select-styled:hover:after,
+      .select-styled:focus:after,
+      .select-styled:active:after {
+        background-image:
+          linear-gradient(
+            rgba(0,0,0, 0.125),
+            rgba(0,0,0, 0.125)
+          );
+      }
+
+      a.button--main-action:hover, a.button--main-action:focus {
+        color: rgb(255,255,255);
+      }
+
+      .footer-copyright {
+        color: #ffffff;
+      }
+
+      .footer-contact-link {
+        color: rgb(255,255,255);
+        border-color: rgba(255,255,255, 0.8);
+      }
+
+      .footer-contact-link:hover,
+      .footer-contact-link:focus {
+        color: rgb(255,255,255);
+        border-color: rgb(255,255,255);
+      }
+
+      @media screen and (max-width: 600px) {
+        .view-all__link {
+          background-color: rgb(173,21,25);
+          color: rgb(255,255,255);
+        }
+      }
+
+      .bundle-thumb__title,
+      .palmares-section .view-covers__cover:before{
+        background-color: rgba(173,21,25, 0.8);
+        color: rgb(255,255,255);
+      }
+
+      section.cover a:focus img,
+      input[type="text"]:focus,
+      input[type="search"]:focus,
+      input[type="password"]:focus,
+      input[type="number"]:focus,
+      input[type="tel"]:focus,
+      input[type="email"]:focus,
+      input[type="date"]:focus,
+      textarea:focus,
+      .resource-article-excerpt {
+        border-color: rgb(173,21,25);
+      }
+
+      .nav-main__link:hover,
+      .nav-main__link:focus {
+        background-color: rgba(0,0,0, 0.125);
+      }
+
+      #home .nav-main .link-home,
+      #resources .nav-main .link-resources,
+      #bundles .nav-main .link-bundles,
+      #statics.palmares .nav-main .link-palmares,
+      #help .nav-main .link-help,
+      #reviews .nav-main .link-reviews,
+      #biblio_aidants .nav-main .link-biblio-aidants,
+      #fondation_chagnon .nav-main .link-fondation-changnon {
+        background-color: rgba(0,0,0, 0.25);
+      }
+
+      .orejime-Env.orejime-Env {
+        --orejime-color-interactive: rgb(173,21,25);
+      }
+
+      .search-box__results {
+        --search-box-link-color-rgb: 173,21,25;
+      }
+
+      .lb_available,
+      .banner-section__pagination .banner-section__pagination--active:after,
+      .boxed-link--primary {
+        background-color: rgb(173,21,25);
+      }
+
+      .u-bg-secondary-darken {
+        background-color: rgb(173,21,25);
+        background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+      }
+
+      a,
+      .link,
+      .backto-mobile:before,
+      .button.button--beta .icon,
+      .alphanumeric_title_first_character .text,
+      #neat-pages-navigation .page a:hover,
+      .slidebar__close {
+        color: rgb(173,21,25);
+      }
+
+      .boxed-link--primary:hover,
+      .boxed-link--primary:focus,
+      a:hover,
+      a:focus,
+      a:hover .link__hover,
+      a:focus .link__focus,
+      .link:hover,
+      .link:focus,
+      .link:hover .link__hover,
+      .link:focus .link__focus,
+      .slidebar__nav > ul a:hover,
+      .slidebar__close:hover,
+      .slidebar__close:focus,
+      .menu-classification a:hover,
+      .menu-classification a:focus,
+      .subjects-list a:hover,
+      h1 a:hover,
+      h2 a:hover,
+      h3 a:hover,
+      h4 a:hover,
+      h5 a:hover,
+      h6 a:hover,
+      .alpha a:hover,
+      .beta a:hover,
+      .gamma a:hover,
+      .delta a:hover,
+      .epsilon a:hover,
+      .zeta a:hover,
+      .pagination .page a:hover,
+      .menu-list__link:hover,
+      .menu-list__link:focus {
+        color: rgb(156,19,23);
+      }
+
+
+      .actions-list__icon,
+      .svg-icon_secondary_color {
+        fill: rgb(173,21,25);
+      }
+</style>
+  
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://andalucia.ebiblio.es/ebiblio_auth_sign_in" />
+  <meta property="og:image" content="" />
+
+
+
+  <meta name="twitter:card" content="summary" />
+
+
+</head><body id="ebiblio_authentication" class="new espa unknown_browser unknown_browser0 u-bg-white" data-coffee-cup="EbiblioAuthentication#New" data-instance="espa">
+  <a class="skip-to-content skip-to-content_main" href="#main">Ir directamente al contenido</a>
+
+  <div class="simple-layout">
+    <header>
+
+        
+  <div class="fixed-locale-selector">
+    <div class="locale-selector drop-menu drop-menu_hover js-drop-menu" data-has-hover-handler="true">
+      <button type="button" class="drop-menu__trigger boxed-link boxed-link--primary dropdown-arrow">
+        Castellano&nbsp;
+        <span class="icon icon--arrow-down icon--alone"></span>
+      </button>
+      <div class="drop-menu__wrap txt-base">
+        <ul class="drop-menu__content menu-list">
+            <li class="menu-list__item"><a class="menu-list__link" href="/ebiblio_auth_sign_in?l=es">Castellano</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/ebiblio_auth_sign_in?l=ca">Català</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/ebiblio_auth_sign_in?l=ca-valencia">Valencià</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/ebiblio_auth_sign_in?l=eu">Euskara</a></li>
+            <li class="menu-list__item"><a class="menu-list__link" href="/ebiblio_auth_sign_in?l=gl">Galego</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+      <div class="simple-layout__header">
+        
+
+<div class="wrapper band band_sm">
+  <div class="header-logos">
+      <a title="Regreso a la página de inicio" class="d-flex align-items-center" href="/home">
+          <div class="header-logos__logo">
+            <img alt="Gobierno de España - Ministerio de Cultura" src="/assets/espa/espa-gouv-logo-8672058a.png" />
+          </div>
+
+
+          <div class="header-logos__logo">
+
+            <img srcset="https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-logo.png, https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-logo-2x.png 2x" alt="eBiblio Andalucía" src="https://meki-production.s3.amazonaws.com/espa/ebiblioandalucia/logo/5fbdc14ec3b47400015f097a-logo.png" />
+          </div>
+</a>
+      <div class="header-logos__logo">
+        <img alt="eBiblio" src="/assets/espa/ebiblio-logo-0a480264.png" />
+      </div>
+
+  </div>
+</div>
+
+      </div>
+    </header>
+
+    <div class="sessions-layout" id="sessions-layout">
+      <main id="main">
+
+        <div class="sessions-layout__item ">
+          
+<div class="sessions-login-box-width">
+  <h1>Identificación</h1>
+  
+</div>
+
+<div class="sessions-login-box center">
+  <form id="form-authentication" action="/ebiblio_auth_sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="TEST-CSRF-TOKEN" />
+
+    <div class="pnl pnl_sm msg msg_notice_light row-space-3">
+      <div class="msg__text">
+        <p>
+            ¡Atención! Debe usar su dirección de correo electrónico para conectarse de ahora en adelante.
+
+        </p>
+      </div>
+    </div>
+
+    <div class="line">
+      <label for="login">Correo electrónico:</label>
+      <div class="field">
+        <input type="email" name="login" id="login" autocomplete="username" class="text-field">
+      </div>
+    </div>
+
+    <div class="line">
+      <label for="password">Contraseña:</label>
+      <div class="field">
+        <input type="password" name="password" id="password" value="" autocomplete="off" class="text-field" />
+      </div>
+    </div>
+
+    <p class="d-flex justify-content-between">
+      <span class="flex-shrink-0 d-flex align-items-baseline">
+        <label for="remember_me">Permanecer conectado</label>&nbsp;&nbsp;
+        <input type="checkbox" name="remember_me" id="remember_me" value="1" />
+      </span>
+
+        <a class="col-space-1 order-minus-1" href="https://andalucia.ebiblio.es/about">¿Has olvidado tu contraseña?</a>
+    </p>
+
+    <p class="buttons">
+      <button name="button" type="submit" id="btn-connect" class="button button--main-action button_big">Conectarse</button>
+    </p>
+</form></div>
+
+<div class="login-box-bottom-info tal">
+  
+<p>
+    <strong>¿No tienes cuenta?</strong> <a href="https://andalucia.ebiblio.es/about">Haz clic aquí</a> para inscribirte.
+</p>
+
+</div>
+
+        </div>
+
+      </main>
+
+      <footer class="sessions-layout__item sessions-layout__item--full footer-sessions-layout" role="contentinfo">
+
+        <div class="footer-copyright">
+          
+
+            <p><a class="support-link" href="mailto:ebiblio.ccul@juntadeandalucia.es">Contactar al soporte técnico</a></p>
+        </div>
+
+        <div class="partner-logo"></div>
+      </footer>
+    </div>
+  </div>
+</body></html>
