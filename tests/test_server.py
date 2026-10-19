@@ -140,6 +140,80 @@ def test_export_runs_toolchain(stub: StubClient, monkeypatch) -> None:
     assert result["format"] == "epub"
     assert Path(result["path"]).read_bytes() == b"epub"
     assert Path(result["acsm"]).read_bytes() == b"<fulfillmentToken/>"
+    # the loan is given back to the library once the file exists
+    assert result["loan_returned"] is True
+    assert stub.returned == [stub.loan.loan_id]
+
+
+def test_export_keeps_loan_when_asked(stub: StubClient, monkeypatch) -> None:
+    from ebiblio_mcp import server as mod
+
+    monkeypatch.setattr(mod, "AdeptToolchain", _FakeToolchain)
+    result = mod.ebiblio_export(stub.loan.loan_id, return_after=False)
+    assert result["loan_returned"] is False
+    assert stub.returned == []
+
+
+def test_export_reports_return_failure_without_losing_the_file(stub: StubClient, monkeypatch) -> None:
+    from ebiblio_mcp import server as mod
+
+    monkeypatch.setattr(mod, "AdeptToolchain", _FakeToolchain)
+
+    def boom(_loan_id: str) -> None:
+        raise EbiblioError("returning loan failed (HTTP 500)")
+
+    monkeypatch.setattr(stub, "return_loan", boom)
+    result = mod.ebiblio_export(stub.loan.loan_id)
+    assert result["loan_returned"] is False
+    assert "HTTP 500" in result["return_error"]
+    assert Path(result["path"]).is_file()
+
+
+def test_export_failure_does_not_return_the_loan(stub: StubClient, monkeypatch) -> None:
+    from ebiblio_mcp import server as mod
+    from ebiblio_mcp.drm import DrmError
+
+    class FailingToolchain:
+        def __init__(self, adept_dir, bin_dir=None):
+            pass
+
+        def fulfil_acsm(self, acsm_path, work_dir):
+            raise DrmError("E_LIC_ALREADY_FULFILLED_BY_ANOTHER_USER")
+
+    monkeypatch.setattr(mod, "AdeptToolchain", FailingToolchain)
+    with pytest.raises(DrmError):
+        mod.ebiblio_export(stub.loan.loan_id)
+    assert stub.returned == []
+
+
+def test_export_to_mobi_converts_and_returns(stub: StubClient, monkeypatch) -> None:
+    from ebiblio_mcp import server as mod
+
+    monkeypatch.setattr(mod, "AdeptToolchain", _FakeToolchain)
+
+    def fake_convert(source, target_format, out_path, ebook_convert=None):
+        assert Path(source).is_file()
+        Path(out_path).write_bytes(b"mobi")
+        return Path(out_path)
+
+    monkeypatch.setattr(mod, "convert_ebook", fake_convert)
+    result = mod.ebiblio_export(stub.loan.loan_id, format="mobi")
+    assert result["format"] == "mobi"
+    assert Path(result["path"]).suffix == ".mobi"
+    assert Path(result["path"]).read_bytes() == b"mobi"
+    assert result["loan_returned"] is True
+
+
+class _FakeToolchain:
+    """Minimal stand-in for AdeptToolchain used by several export tests."""
+
+    def __init__(self, adept_dir, bin_dir=None):
+        pass
+
+    def fulfil_acsm(self, acsm_path, work_dir):
+        out = Path(work_dir) / "book.drm-free.epub"
+        out.write_bytes(b"epub")
+        return out
 
 
 def test_export_unknown_loan(stub: StubClient) -> None:

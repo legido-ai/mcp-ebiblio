@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from ebiblio_mcp.client import EbiblioClient, EbiblioError  # noqa: E402
 from ebiblio_mcp.config import Settings  # noqa: E402
-from ebiblio_mcp.drm import AdeptToolchain  # noqa: E402
+from ebiblio_mcp.drm import AdeptToolchain, convert_ebook  # noqa: E402
 
 DEFAULT_RESOURCE = "5fcfe8a0114a6f0001f59490"  # La barraca (novela)
 
@@ -40,6 +40,7 @@ def main() -> int:
     parser.add_argument("--resource", default=DEFAULT_RESOURCE)
     parser.add_argument("--roundtrip", action="store_true", help="borrow and return a fresh copy")
     parser.add_argument("--skip-export", action="store_true")
+    parser.add_argument("--mobi", action="store_true", help="also convert the export to MOBI")
     args = parser.parse_args()
 
     settings = Settings.from_env()
@@ -132,9 +133,12 @@ def main() -> int:
                     names = archive.namelist()
                 assert not any("encryption.xml" in name for name in names), "DRM still present"
                 step("export epub", f"{epub} ({epub.stat().st_size} bytes, {len(names)} entries)")
+                if args.mobi:
+                    mobi = convert_ebook(epub, "mobi", out_dir / "book.mobi", settings.ebook_convert)
+                    step("export mobi", f"{mobi} ({mobi.stat().st_size} bytes)")
             except Exception as exc:  # noqa: BLE001
                 failures += 1
-                fail("export epub", exc)
+                fail("export", exc)
 
     if args.roundtrip and loan is not None:
         try:

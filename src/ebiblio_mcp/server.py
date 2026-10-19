@@ -150,12 +150,18 @@ def ebiblio_export(
     loan_id: str,
     format: str = "epub",
     out_path: str | None = None,
+    return_after: bool = True,
 ) -> dict[str, Any]:
-    """Export a loan as a DRM-free file (epub by default, or mobi/azw3).
+    """Export a loan as a DRM-free file, then give the copy back to the library.
 
     The ACS4 loan token is fulfilled with libgourou (anonymous device
-    activation) and the ADEPT DRM is removed, so the resulting EPUB can be read
-    on any device or converted to Kindle formats with Calibre.
+    activation) and the ADEPT DRM is removed, so the resulting file needs no
+    Adobe account, no Thorium and no LCP passphrase: it opens on any device.
+    `format` is `epub` (default), `mobi` or `azw3` for e-readers/mobile.
+
+    Once the export has been produced the loan is returned automatically
+    (`return_after=False` keeps it on loan instead).  The loan is never returned
+    when the export fails, so a failure leaves the loan usable.
     """
     settings = get_settings()
     client = get_client()
@@ -187,7 +193,7 @@ def ebiblio_export(
         produced.parent.mkdir(parents=True, exist_ok=True)
         drm_free.replace(produced)
 
-    return {
+    result: dict[str, Any] = {
         "loan_id": loan_id,
         "title": loan.title,
         "authors": loan.authors,
@@ -196,7 +202,17 @@ def ebiblio_export(
         "path": str(produced),
         "bytes": produced.stat().st_size,
         "acsm": str(acsm_path),
+        "loan_returned": False,
     }
+    if return_after:
+        try:
+            client.return_loan(loan_id)
+            result["loan_returned"] = True
+        except EbiblioError as exc:
+            # The file is already safe on disk: report the failure, do not fail.
+            result["return_error"] = str(exc)
+            log.warning("export ok but returning loan %s failed: %s", loan_id, exc)
+    return result
 
 
 def main() -> None:

@@ -4,6 +4,10 @@
 
 Initial release: MCP server for eBiblio Andalucía.
 
+- `ebiblio_export` converts to EPUB/MOBI/AZW3 and returns the loan automatically
+  once the DRM-free file is on disk (`return_after=false` keeps the loan; a
+  failed export never returns it).
+
 - `ebiblio_search` / `ebiblio_resource`: catalogue search and record inspection.
 - `ebiblio_borrow` / `ebiblio_loans` / `ebiblio_return`: loan lifecycle through
   the platform's own flows.

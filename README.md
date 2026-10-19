@@ -22,7 +22,7 @@ converted to MOBI/AZW3 for a Kindle.
 | `ebiblio_loans` | Active loans: expiry, download links, LCP passphrase hint. |
 | `ebiblio_return` | Return a loan early. |
 | `ebiblio_download_loan_file` | Save `.acsm` (Adobe) or `.lcpl` (Thorium/LCP). |
-| `ebiblio_export` | Export a loan as a DRM-free `epub`, `mobi` or `azw3`. |
+| `ebiblio_export` | Export a loan as a DRM-free `epub`, `mobi` or `azw3`, then return the loan automatically (`return_after=false` to keep it). |
 
 Resource ids are the ones in eBiblio URLs, e.g.
 `https://andalucia.ebiblio.es/resources/5fcfe8a0114a6f0001f59490`.
