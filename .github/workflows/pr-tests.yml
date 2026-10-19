@@ -1,0 +1,88 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# Permissions required to post comments on the PR
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # Compatible with your 3.8+ requirement
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run unit tests
+        id: unit_tests
+        # Runs the specific command from your Makefile that doesn't require API keys
+        run: |
+          make test-unit 2>&1 | tee test_output.txt
+          # Capture exit code to determine success/failure later
+          echo "exit_code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+      
+      - name: Check if issue is referenced
+        id: issue_check
+        run: |
+          # Simple check: looks for patterns like #123 in the PR body
+          issue_num=$(echo "${{ github.event.pull_request.body }}" | grep -oP '#\d+' | head -1 | tr -d '#')
+          echo "issue_number=$issue_num" >> $GITHUB_OUTPUT
+      
+      - name: Post results to PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let output = '';
+            try {
+              output = fs.readFileSync('test_output.txt', 'utf8');
+            } catch (e) {
+              output = 'No output captured.';
+            }
+            
+            // Truncate output if too long (GitHub comment limit)
+            if (output.length > 60000) {
+              output = output.substring(0, 60000) + '\n... (Output truncated)';
+            }
+
+            const exitCode = '${{ steps.unit_tests.outputs.exit_code }}';
+            const issueNum = '${{ steps.issue_check.outputs.issue_number }}';
+            
+            const passed = exitCode === '0';
+            const emoji = passed ? '✅' : '❌';
+            
+            let body = `## ${emoji} Automated Test Results\n\n`;
+            
+            if (issueNum) {
+              body += `🔗 **Related Issue:** #${issueNum}\n\n`;
+            } else {
+              body += `ℹ️ *No related issue detected in PR description.*\n\n`;
+            }
+            
+            body += `**Status:** ${passed ? 'All tests passed' : 'Tests failed'}\n\n`;
+            body += `<details>\n<summary>Full Test Output</summary>\n\n\`\`\`text\n${output}\n\`\`\`\n</details>`;
+            
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Fail workflow if tests failed
+        if: steps.unit_tests.outputs.exit_code != '0'
+        run: exit 1
