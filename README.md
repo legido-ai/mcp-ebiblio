@@ -70,6 +70,36 @@ Wire it into an MCP client (OpenCode, Claude, Hermes…):
 }
 ```
 
+### Live registration on the Hermes box
+
+Registered as the Hermes MCP server **`ebiblio-andalucia`** (tools callable as
+`mcp__ebiblio_andalucia__*`). The card is never written into `config.yaml`: the
+command is `oci-env`, which resolves the pair from OCI Vault at spawn time, and
+the source is mounted read-only so the process always runs the checkout's code.
+
+```jsonc
+{
+  "ebiblio-andalucia": {
+    "command": "/opt/data/bin/oci-env",
+    "args": [
+      "ANDALUCIA_EBIBLIO_USERNAME", "ANDALUCIA_EBIBLIO_PASSWORD", "--",
+      "docker", "run", "--rm", "-i", "--user", "0:0",
+      "-v", "/srv/work/mcp-ebiblio/repo/src:/app/src:ro",
+      "-v", "/srv/work/mcp-ebiblio-data:/data",
+      "-e", "PYTHONPATH=/app/src", "-e", "EBIBLIO_DATA_DIR=/data",
+      "-e", "ANDALUCIA_EBIBLIO_USERNAME", "-e", "ANDALUCIA_EBIBLIO_PASSWORD",
+      "mcp-ebiblio:local"
+    ],
+    "connect_timeout": 90
+  }
+}
+```
+
+MCP servers are discovered when the gateway starts, so a new registration needs a
+bounce: `/opt/data/bin/gateway-selfrestart <seconds> "<reason>"` in the
+background (never `kill` PID 1 — it *is* the gateway). A fresh
+`hermes chat -q "…tool_search…"` proves the wiring without bouncing anything.
+
 ## Architecture
 
 ```

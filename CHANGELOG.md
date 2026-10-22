@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1 — 2026-10-22
+
+**Registered with Hermes** as the `ebiblio-andalucia` MCP server, so the eight
+tools are callable directly in a session. `config.yaml` holds `oci-env` plus a
+`docker run` on the `mcp-ebiblio` image with this repository's `src/` mounted
+read-only; the credentials are resolved from OCI Vault at spawn time and never
+written to the file. Verified with a live handshake: `ebiblio_status` reports
+`authenticated: true` for the account and `ebiblio_search` answers from the
+catalogue.
+
 ## 0.1.0 — 2026-10-19
 
 Initial release: MCP server for eBiblio Andalucía.
